@@ -1,0 +1,67 @@
+<script>$("#refersubmit").click(function () {
+        var x = document.getElementById("referform");
+        console.log('pressed')
+        var p = {
+            email: x.elements[0].value,
+            travelers: x.elements[2].value,
+            city: x.elements[1].value,
+            type: x.elements[3].value
+        }
+
+        $.post("https://travelden.herokuapp.com/agentpage/refer", p, function (data) {
+            alert('refered')
+        })
+
+    });</script>
+
+
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+    <form id="referform" action="">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">City</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+
+                <option value="mumbai">Mumbai</option>
+                <option value="goa">Goa</option>
+                <option value="manali">Manali</option>
+                <option value="shimla">Shimla</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Travellers</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect2">Type</label>
+            <select class="form-control" id="exampleFormControlSelect2">
+                <option value="family">Family</option>
+                <option value="friends">Friends</option>
+                <option value="romantic">Romantic</option>
+                <option value="adventure">Adventure</option>
+                <option value="bike">Bike</option>
+            </select>
+        </div>
+        <div>
+            <button type="button" id="refersubmit">Submit
+            </button>
+        </div>
+    </form>
+</body>
+
+</html>
